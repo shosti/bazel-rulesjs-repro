@@ -1,5 +1,3 @@
-import { Thing } from "myworkspace/proto/myproto_pb";
+import foo from "myworkspace/lib/b";
 
-let thing = new Thing();
-thing.setThing("foo");
-console.log(thing);
+foo()

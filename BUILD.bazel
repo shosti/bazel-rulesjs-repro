@@ -4,15 +4,15 @@ load("@npm//@bazel/typescript:index.bzl", "ts_library")
 exports_files(["tsconfig.json"], visibility = ["//visibility:public"])
 
 ts_library(
-    name = "lib",
+    name = "a",
     srcs = ["a.ts"],
-    deps = ["//proto:myproto_ts_proto"],
+    deps = ["//lib:b"],
 )
 
 esbuild(
     name = "bundle",
     entry_point = "a.ts",
-    deps = [":lib"],
+    deps = [":a"],
     tool = select({
         "@bazel_tools//src/conditions:darwin": "@esbuild_darwin//:bin/esbuild",
         "@bazel_tools//src/conditions:windows": "@esbuild_windows//:esbuild.exe",
