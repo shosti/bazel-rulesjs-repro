@@ -1,4 +1,8 @@
-# Add rules here to build your software
-# See https://docs.bazel.build/versions/master/build-ref.html#BUILD_files
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
 
+exports_files(["tsconfig.json"], visibility = ["//visibility:public"])
 
+ts_library(
+    name = "lib",
+    srcs = ["a.ts"],
+)
