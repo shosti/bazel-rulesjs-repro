@@ -6,6 +6,7 @@ exports_files(["tsconfig.json"], visibility = ["//visibility:public"])
 ts_library(
     name = "lib",
     srcs = ["a.ts"],
+    deps = ["//proto:myproto_ts_proto"],
 )
 
 esbuild(

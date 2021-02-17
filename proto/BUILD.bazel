@@ -1,0 +1,17 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@npm//@bazel/labs:index.bzl", "ts_proto_library")
+load("@npm//@bazel/labs:index.bzl", "ts_proto_library")
+
+proto_library(
+    name = "myproto",
+    srcs = [
+        "myproto.proto",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+ts_proto_library(
+    name = "myproto_ts_proto",
+    proto = ":myproto",
+    visibility = ["//visibility:public"],
+)
